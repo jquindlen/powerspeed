@@ -1,0 +1,272 @@
+/*
+ * PowerSpeed main CSS file
+ */
+
+/* Top bar */
+#powerspeed-top-bar {
+  padding: 15px 0 5px 0;
+}
+
+.powerspeed-top-bar-search-button {
+  width:42px;
+  height:42px;
+}
+
+.powerspeed-top-bar-search-input {
+  height:42px;
+  width:100%;
+  float:left;
+}
+
+#powerspeed-social-media-icons {
+  height:30px;
+}
+
+.powerspeed-social-icon {
+  margin-left:5px;
+}
+
+a.powerspeed-social-icon:hover {
+  position:relative;
+  top:2px;
+}
+
+.powerspeed-search-button-column {
+  padding: 0 0 0 0;
+  float:left;
+  left:0px;
+}
+
+.powerspeed-top-bar-search-input-column {
+  padding: 0 0 0 10px;
+}
+
+.align {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Footer menu */
+#powerspeed-footer {
+  padding-top:10px;
+}
+
+#powerspeed-footer-menu ul {
+  list-style: none;
+  font-size:1.2em;
+}
+
+#powerspeed-footer-menu ul li {
+  display:inline;
+}
+
+/* Important WordPress CSS classes */
+.wp-caption {
+  display: block;
+  margin-bottom: 1.5em;
+  max-width: 100%;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  color: #6c757d;
+  text-align: center;
+  caption-side: bottom;
+}
+
+.wp-caption-text {
+  text-align: center;
+  font-size: 90%;
+  color: #6c757d;
+}
+
+.gallery-caption {
+  text-align: center;
+}
+
+.bypostauthor {
+
+}
+
+img.alignright {
+  padding: 4px;
+  margin: 0 0 2px 7px;
+  display: inline;
+}
+
+img.alignleft {
+  padding: 4px;
+  margin: 0 7px 2px 0;
+  display: inline;
+}
+
+img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alignright {
+  float: right;
+}
+
+.alignleft {
+  float: left;
+}
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+  max-width: 100%;
+  height: auto;
+}
+
+h2.screen-reader-text {
+  display: none;
+}
+
+/* WooCommerce */
+/* WooCommerce Grid System fix for Bootstrap */
+.woocommerce .col2-set .col-1, .woocommerce .col2-set .col-2 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width:50%;
+}
+
+@media all and (max-width: 767px) {
+  .woocommerce .col2-set, .col-1,
+  .woocommerce .col2-set, .col-2 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width:100%;
+  }
+}
+
+/* Checkout */
+.woocommerce form .form-row {
+  display:block;
+}
+
+.woocommerce-checkout #customer-detail {
+  margin-bottom: 20px;
+}
+
+.woocommerce table.shop_table {
+  border-collapse: collapse;
+}
+
+/* Useful visualization for debugging areas of the theme. Uncomment to use */
+/*
+div, section, header, footer, span, a { border:1px dotted red; }
+*/
+
+nav.pagination {
+  position: relative;
+  display: block;
+}
+
+.nav-links {
+  position: relative;
+}
+
+.nav-links ul {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links ul li {
+  list-style: none;
+  margin:0 10px 0 0;
+  padding:0;
+  float: left;
+}
+
+.nav-links ul li span.current {
+  padding: 10px 12px 10px 12px;
+  display: block;
+  line-height: 1;
+}
+
+.nav-links ul li a {
+  padding: 10px 12px;
+  text-decoration: none;
+  display: block;
+  line-height: 1;
+}
+
+.nav-links ul li a:hover {
+  opacity:0.9;
+}
+
+.clearboth {clear:both;}
+
+/* Accessibility */
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip; rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  clip-path: none;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  right: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}
+
+.powerspeed-search-button-column {
+  display:none;
+}
+
+@media(min-width: 1201px) {
+  .powerspeed-search-button-column {
+    display:block;
+  }
+  .powerspeed-top-bar-search-input {
+    width:75%;
+  }
+}
+
+.widget-wrapper img {
+  width: 100%;
+  height: auto;
+}
+
+.portfolio-featured-title {
+  opacity:0.0;
+}
+
+.portfolio-featured-title:hover {
+  opacity:1.0;
+}
