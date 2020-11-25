@@ -26,325 +26,431 @@ add_action( 'get_footer', 'powerspeed_load_footer_scripts', 1);
  * powerspeed_custom_font
  * Loads custom font settings that are fed to it
  *
- * @var string $font_to_load
- * @var string $css_selector
+ * @var string $font_to_load One of the approved fonts. Using one not on the approved list will result in no output
+ * @var string $css_selector The CSS selector that is targetted to use the custom font.  Tag, class or ID
  */
 function powerspeed_custom_font($font_to_load, $css_selector='') {
 	$output = '';
 	$ttf_font_name = '';
 	$websafe_output = '';
 
+  $font_to_load_trusted = false;  // If this remains false then this function outputs nothing
+
 	switch ($font_to_load) {
 			case 'arial':
 				$websafe_output = 'Arial, Helvetica, sans-serif';
+        $font_to_load_trusted = true;
 			break;
 			case 'arialblack':
 				$websafe_output = '"Arial Black", Gadget, sans-serif';
+        $font_to_load_trusted = true;
 			break;
 			case 'comicsans':
 				$websafe_output = '"Comic Sans MS", cursive, sans-serif';
+        $font_to_load_trusted = true;
 			break;
 			case 'courier':
 				$websafe_output = '"Courier New", Courier, monospace';
+        $font_to_load_trusted = true;
 			break;
 			case 'georgia':
 				$websafe_output = 'Georgia, serif';
+        $font_to_load_trusted = true;
 			break;
 			case 'impact':
 				$websafe_output = 'Impact, Charcoal, sans-serif';
+        $font_to_load_trusted = true;
 			break;
 			case 'lucidaconsole':
 				$websafe_output = '"Lucida Console", Monaco, monospace';
+        $font_to_load_trusted = true;
 			break;
 			case 'lucida':
 				$websafe_output = '"Lucida Sans Unicode", "Lucida Grande", sans-serif';
+        $font_to_load_trusted = true;
 			break;
 			case 'palatino':
 				$websafe_output = '"Palatino Linotype", "Book Antiqua", Palatino, serif';
+        $font_to_load_trusted = true;
 			break;
 			case 'tahoma':
 				$websafe_output = 'Tahoma, Geneva, sans-serif';
+        $font_to_load_trusted = true;
 			break;
 			case 'times':
 				$websafe_output = '"Times New Roman", Times, serif';
+        $font_to_load_trusted = true;
 			break;
 			case 'trebuchet':
 				$websafe_output = '"Trebuchet MS", Helvetica, sans-serif';
+        $font_to_load_trusted = true;
 			break;
 			case 'verdana':
 				$websafe_output = 'Verdana, Geneva, sans-serif';
+        $font_to_load_trusted = true;
 			break;
 			case '0xa000':
 				$ttf_font_name = '0xA000-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'aardvark':
 				$ttf_font_name = 'aardvark-fixed-regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'abibas':
 				$ttf_font_name = 'Abibas';
+        $font_to_load_trusted = true;
 			break;
 			case 'acarisans':
 				$ttf_font_name = 'AcariSans-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'amaranth':
 				$ttf_font_name = 'Amaranth-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'amaticsc':
 				$ttf_font_name = 'AmaticSC-Bold';
+        $font_to_load_trusted = true;
 			break;
 			case 'amburegul':
 				$ttf_font_name = 'Amburegul';
+        $font_to_load_trusted = true;
 			break;
 			case 'anonymouspro':
 				$ttf_font_name = 'Anonymous Pro';
+        $font_to_load_trusted = true;
 			break;
 			case 'bretan':
 				$ttf_font_name = 'Bretan';
+        $font_to_load_trusted = true;
 			break;
 			case 'cabin':
 				$ttf_font_name = 'Cabin-Regular-TTF';
+        $font_to_load_trusted = true;
 			break;
 			case 'cambay':
 				$ttf_font_name = 'CambayDevanagari-Regular.AH';
+        $font_to_load_trusted = true;
 			break;
 			case 'carlito':
 				$ttf_font_name = 'Carlito-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'clickuper':
 				$ttf_font_name = 'Clickuper';
+        $font_to_load_trusted = true;
 			break;
 			case 'comfortaa':
 				$ttf_font_name = 'Comfortaa-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'comicrelief':
 				$ttf_font_name = 'ComicRelief';
+        $font_to_load_trusted = true;
 			break;
 			case 'constructium':
 				$ttf_font_name = 'Constructium';
+        $font_to_load_trusted = true;
 			break;
 			case 'cormorant':
 				$ttf_font_name = 'Cormorant-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'coval':
 				$ttf_font_name = 'Coval-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'crimson':
 				$ttf_font_name = 'Crimson-Roman';
+        $font_to_load_trusted = true;
 			break;
 			case 'crosterian':
 				$ttf_font_name = 'Crosterian';
+        $font_to_load_trusted = true;
 			break;
 			case 'crusoetext':
 				$ttf_font_name = 'CrusoeText-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'didactgothic':
 				$ttf_font_name = 'DidactGothic';
+        $font_to_load_trusted = true;
 			break;
 			case 'elmessiri':
 				$ttf_font_name = 'ElMessiri-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'evolventa':
 				$ttf_font_name = 'Evolventa-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'ezarion':
 				$ttf_font_name = 'Ezarion-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'fairfaxhd':
 				$ttf_font_name = 'FairfaxHD';
+        $font_to_load_trusted = true;
 			break;
 			case 'fantasquesansmono':
 				$ttf_font_name = 'FantasqueSansMono-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'firacode':
 				$ttf_font_name = 'FiraCode-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'firamono':
 				$ttf_font_name = 'FiraMono-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'fyodor':
 				$ttf_font_name = 'Fyodor-Bold';
+        $font_to_load_trusted = true;
 			break;
 			case 'gapsans':
 				$ttf_font_name = 'GapSans';
+        $font_to_load_trusted = true;
 			break;
 			case 'gentium':
 				$ttf_font_name = 'Gentium-R';
+        $font_to_load_trusted = true;
 			break;
 			case 'gfsartemisia':
 				$ttf_font_name = 'GFSArtemisia';
+        $font_to_load_trusted = true;
 			break;
 			case 'gfsdidot':
 				$ttf_font_name = 'GFSDidot';
+        $font_to_load_trusted = true;
 			break;
 			case 'gfsneohellenic':
 				$ttf_font_name = 'GFSNeohellenic';
+        $font_to_load_trusted = true;
 			break;
 			case 'go':
 				$ttf_font_name = 'Go-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'granapadano':
 				$ttf_font_name = 'GranaPadano';
+        $font_to_load_trusted = true;
 			break;
 			case 'gratiasans':
 				$ttf_font_name = 'GratiaSans-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'hebertsans':
 				$ttf_font_name = 'HebertSans-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'helvetiaverbundene':
 				$ttf_font_name = 'helvetia-verbundene';
+        $font_to_load_trusted = true;
 			break;
 			case 'heraclito':
 				$ttf_font_name = 'Heraclito-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'hussar':
 				$ttf_font_name = 'hussarbd-web';
+        $font_to_load_trusted = true;
 			break;
 			case 'inconsolata':
 				$ttf_font_name = 'Inconsolata-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'indictionunicode':
 				$ttf_font_name = 'IndictionUnicode';
+        $font_to_load_trusted = true;
 			break;
 			case 'iosevka':
 				$ttf_font_name = 'iosevka-extended-regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'isabellasans':
 				$ttf_font_name = 'IsabellaSans-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'iunito':
 				$ttf_font_name = 'Iunito-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'jost':
 				$ttf_font_name = 'Jost-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'jozsika':
 				$ttf_font_name = 'jozsika-regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'jura':
 				$ttf_font_name = 'Jura-Book';
+        $font_to_load_trusted = true;
 			break;
 			case 'kawkabmono':
 				$ttf_font_name = 'KawkabMono-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'lato':
 				$ttf_font_name = 'Lato-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'liberationmono':
 				$ttf_font_name = 'LiberationMono-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'liberationsans':
 				$ttf_font_name = 'LiberationSans-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'liberationserif':
 				$ttf_font_name = 'LiberationSerif-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'libertinage':
 				$ttf_font_name = 'Libertinage';
+        $font_to_load_trusted = true;
 			break;
 			case 'lierasans':
 				$ttf_font_name = 'LieraSans-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'lmcv2mono':
 				$ttf_font_name = 'LMCV2Mono';
+        $font_to_load_trusted = true;
 			break;
 			case 'lobster':
 				$ttf_font_name = 'Lobster';
+        $font_to_load_trusted = true;
 			break;
 			case 'luculent':
 				$ttf_font_name = 'luculent';
+        $font_to_load_trusted = true;
 			break;
 			case 'marapfhont':
 				$ttf_font_name = 'Marapfhont';
+        $font_to_load_trusted = true;
 			break;
 			case 'miamanueva':
 				$ttf_font_name = 'miamanueva';
+        $font_to_load_trusted = true;
 			break;
 			case 'monoid':
 				$ttf_font_name = 'Monoid-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'naturalmono':
 				$ttf_font_name = 'Natural Mono-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'neocyr':
 				$ttf_font_name = 'Neocyr';
+        $font_to_load_trusted = true;
 			break;
 			case 'newscycle':
 				$ttf_font_name = 'newscycle-regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'oldstandard':
 				$ttf_font_name = 'OldStandard-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'osifont':
 				$ttf_font_name = 'osifont';
+        $font_to_load_trusted = true;
 			break;
 			case 'petrasans':
 				$ttf_font_name = 'PetraSans-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'piazzolla':
 				$ttf_font_name = 'Piazzolla-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'playfairdisplay':
 				$ttf_font_name = 'PlayfairDisplay-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'prata':
 				$ttf_font_name = 'Prata-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'raleway':
 				$ttf_font_name = 'Raleway-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'risingsun':
 				$ttf_font_name = 'RisingSun-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'rubik':
 				$ttf_font_name = 'Rubik-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'russischsans':
 				$ttf_font_name = 'RussischSans-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'sanitrixiesans':
 				$ttf_font_name = 'SaniTrixieSans';
+        $font_to_load_trusted = true;
 			break;
 			case 'semyonsoviet':
 				$ttf_font_name = 'Semyon Soviet';
+        $font_to_load_trusted = true;
 			break;
 			case 'sourcecodepro':
 				$ttf_font_name = 'SourceCodePro-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'taylorsans':
 				$ttf_font_name = 'TaylorSans-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'tipotype':
 				$ttf_font_name = 'Tipotype';
+        $font_to_load_trusted = true;
 			break;
 			case 'trujillo':
 				$ttf_font_name = 'Trujillo-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'tt2020base':
 				$ttf_font_name = 'TT2020Base-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'vds':
 				$ttf_font_name = 'VDS_New';
+        $font_to_load_trusted = true;
 			break;
 			case 'venrynsans':
 				$ttf_font_name = 'VenrynSans-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'veranosans':
 				$ttf_font_name = 'VeranoSans-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'vollkorn':
 				$ttf_font_name = 'Vollkorn-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'winston':
 				$ttf_font_name = 'Winston-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'xolonium':
 				$ttf_font_name = 'Xolonium-Regular';
+        $font_to_load_trusted = true;
 			break;
 			case 'zapussans':
 				$ttf_font_name = 'ZapusSans-Regular';
+        $font_to_load_trusted = true;
 			break;
 		}
+
 		if ($ttf_font_name!='') {
 			$output .= "
 					@font-face {
@@ -366,11 +472,13 @@ function powerspeed_custom_font($font_to_load, $css_selector='') {
 			$output .= ' } ';
 		}
 
-		echo "
-		";
-		echo $output;
-		echo "
-		";
+    if($font_to_load_trusted) {
+  		echo "
+  		";
+  		echo $output;
+  		echo "
+  		";
+    }
 }
 
 /*
@@ -855,9 +963,9 @@ function powerspeed_featured_posts($posttype='post', $count=3, $style='card', $r
          if($style=='card') {
            $output .= '<a href="'.get_the_permalink().'">';
   				 if (has_post_thumbnail()  ) {
-  				 		$output .= get_the_post_thumbnail(null, 'thumbnail', array( 'class' => 'card-img-top' ));
+  				 		$output .= get_the_post_thumbnail(null, 'thumbnail', array( 'class' => 'card-img-top img-fluid mx-auto d-block', 'style' => 'width:'.get_option( 'thumbnail_size_w' ).'px; height: auto;' ));
   		 		 } else {
-  					 	$output .= '<img src="'.get_template_directory_uri().'/images/transparent-512x256.png" alt="" class="card-img-top" />';
+  					 	$output .= '<img src="'.get_template_directory_uri().'/images/transparent-512x256.png" alt="" class="card-img-top img-fluid" />';
   				 }
   				 $output .= '</a>';
          } elseif ($style=='portfolio') {

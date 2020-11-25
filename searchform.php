@@ -8,13 +8,13 @@
   if ( ! defined( 'ABSPATH' ) ) {
   	exit; // Exit if accessed directly
   }
-  
+
 $powerspeed_search_form_id = 'powerspeed-search-form-' . rand(1,1000);
 ?>
 
 <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
   <div class="form-group">
-      <div class="form-row">
+      <div class="powerspeed-form-row">
         <div class="powerspeed-top-bar-search-input-column col-auto" >
           <label for="<?php echo $powerspeed_search_form_id.'-search-input'; ?>" class="screen-reader-text"><?php _e( 'Search', 'powerspeed' ); ?></label>
           <input id="<?php echo $powerspeed_search_form_id.'-search-input'; ?>" type="search" class="form-control search-field powerspeed-top-bar-search-input" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'powerspeed' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
