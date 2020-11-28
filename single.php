@@ -11,7 +11,7 @@
   if ( ! defined( 'ABSPATH' ) ) {
   	exit; // Exit if accessed directly
   }
-  
+
 get_header(); ?>
 	<div class="powerspeed-content-area">
 		<main>

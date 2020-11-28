@@ -46,6 +46,10 @@ You can leave comments in the documentation page located here: [ https://learnon
 
 == Changelog ==
 
+= 0.9.111 =
+* Fixed: The title of the site now respects the color selected in the Customizer when there is no logo image and the title is turned on.
+* Fixed: spelling error in functions.php corrected
+
 = 0.9.110 =
 * Fixed: the Featured Posts frontpage display didn't handle improperly sized featured images.  It now enforces the site's thumbnail width.
 * Fixed: the search widget was not displaying properly in some configurations

@@ -6,7 +6,7 @@
  *
  * @package PowerSpeed
  */
- 
+
  if ( ! defined( 'ABSPATH' ) ) {
  	exit; // Exit if accessed directly
  }
@@ -108,7 +108,7 @@
 
 							if (!has_custom_logo() && display_header_text()==true) {
 							    ?>
-							    <h2 class="display-4"><?php bloginfo('name'); ?></h2>
+							    <h2 class="display-4 powerspeed-site-title-text"><?php bloginfo('name'); ?></h2>
 							    <?php
 							}
 						?></div>

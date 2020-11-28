@@ -587,7 +587,7 @@ function powerspeed_footer_css() {
 		border-color:<?php echo esc_attr(get_theme_mod('powerspeed_mainmenu_border_color', '#FFFFFF'));?>;
 	}
 
-	#powerspeed-main-menu ul li a {
+	#powerspeed-main-menu ul li a, .powerspeed-site-title-text {
 		color:<?php echo esc_attr(get_theme_mod('powerspeed_mainmenu_link_color', '#007bff')); ?>;
 	}
 
@@ -1368,7 +1368,7 @@ function powerspeed_register_customize_options( $wp_customize ) {
  		 'section' => 'powerspeed_section_typography',
  		 'settings' => 'powerspeed_typography_label',
  		 'label' => __( 'Change Fonts', 'powerspeed' ),
- 		 'content' => __( 'For performance, you should always use a web-safe font that requires no download.  However, sacificing performance for typography is a valid choice.  PowerSpeed has 90 fonts included with the theme in addition to the web-safe fonts.  Font size is included so that you understand the performance penalty for each one.', 'powerspeed' ),
+ 		 'content' => __( 'For performance, you should always use a web-safe font that requires no download.  However, sacrificing performance for typography is a valid choice.  PowerSpeed has 90 fonts included with the theme in addition to the web-safe fonts.  Font size is included so that you understand the performance penalty for each one.', 'powerspeed' ),
  	) ) );
 
 	$powerspeed_font_selection_array =	array(
@@ -1660,7 +1660,7 @@ function powerspeed_register_customize_options( $wp_customize ) {
 	 'label' => __( 'Main Menu & Logo', 'powerspeed' ),
 	 'content' => __( 'The main menu and logo area of the header.', 'powerspeed' ) ,
 	) ) );
-	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'powerspeed_mainmenu_link_color_control', array('label'=>__('Main Menu Text Color', 'powerspeed'), 'section' => 'colors', 'settings' => 'powerspeed_mainmenu_link_color' ) ) );
+	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'powerspeed_mainmenu_link_color_control', array('label'=>__('Main Menu & Site Title Text Color', 'powerspeed'), 'section' => 'colors', 'settings' => 'powerspeed_mainmenu_link_color' ) ) );
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'powerspeed_mainmenu_hover_color_control', array('label'=>__('Main Menu Hover Color', 'powerspeed'), 'section' => 'colors', 'settings' => 'powerspeed_mainmenu_hover_color' ) ) );
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'powerspeed_mainmenu_bg_color_control', array('label'=>__('Main Menu Background Color', 'powerspeed'), 'section' => 'colors', 'settings' => 'powerspeed_mainmenu_bg_color' ) ) );
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'powerspeed_mainmenu_border_color_control', array('label'=>__('Main Menu Border Color', 'powerspeed'), 'section' => 'colors', 'settings' => 'powerspeed_mainmenu_border_color' ) ) );
