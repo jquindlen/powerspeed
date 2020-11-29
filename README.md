@@ -8,8 +8,6 @@
 
 ## Description
 
-## Description
-
 Goals for this theme:
  * WordPress theme based on Bootstrap 4.5
  * Above 95 on Google PageSpeed Insights for desktop and mobile (on a fast host)
