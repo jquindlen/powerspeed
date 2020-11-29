@@ -6,7 +6,7 @@
 1. License: GPLv3 or later
 1. License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-A Completely Free & Open Source WordPress Theme Using Bootstrap 4.5
+## Description
 
 ## Description
 
@@ -37,13 +37,17 @@ PowerSpeed comes with a library of open source fonts.  This makes the theme over
 
 ## Frequently Asked Questions
 
-###  Ask some questions!
+###  Ask some questions! =
 
 After I get enough, I'll update the FAQ with the most frequently asked questions.
 
 You can leave comments in the documentation page located here: https://learnonline.shop/powerspeed-free-wordpress-theme/
 
 ##  Changelog
+
+= 0.9.111 =
+* Fixed: The title of the site now respects the color selected in the Customizer when there is no logo image and the title is turned on.
+* Fixed: spelling error in functions.php corrected
 
 = 0.9.110 =
 * Fixed: the Featured Posts frontpage display didn't handle improperly sized featured images.  It now enforces the site's thumbnail width.
