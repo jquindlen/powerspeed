@@ -270,3 +270,13 @@ nav.pagination {
 .portfolio-featured-title:hover {
   opacity:1.0;
 }
+
+@media (max-width: 767.98px) {
+  .powerspeed-sidebar {
+    order: 2;
+  }
+
+  .powerspeed-main-content {
+    order: 1;
+  }
+}

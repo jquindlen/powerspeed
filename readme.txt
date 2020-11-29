@@ -46,8 +46,11 @@ You can leave comments in the documentation page located here: [ https://learnon
 
 == Changelog ==
 
+= 0.9.112 =
+* Fixed: [#17](https://github.com/jquindlen/powerspeed/issues/17) Left sidebar is now mobile friendly, displays after main content not before
+
 = 0.9.111 =
-* Fixed: The title of the site now respects the color selected in the Customizer when there is no logo image and the title is turned on.
+* Fixed: [#18](https://github.com/jquindlen/powerspeed/issues/18) The title of the site now respects the color selected in the Customizer when there is no logo image and the title is turned on.
 * Fixed: spelling error in functions.php corrected
 
 = 0.9.110 =
