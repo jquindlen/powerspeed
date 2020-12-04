@@ -40,11 +40,20 @@ PowerSpeed comes with a library of open source fonts.  This makes the theme over
 
 = Ask some questions! =
 
-After I get enough, I'll update the FAQ with the most frequently asked questions.
+You can leave questions and comments in the documentation page located here: https://learnonline.shop/powerspeed-free-wordpress-theme/ or on the GitHub page here: https://github.com/jquindlen/powerspeed
 
-You can leave comments in the documentation page located here: [ https://learnonline.shop/powerspeed-free-wordpress-theme/]( https://learnonline.shop/powerspeed-free-wordpress-theme/ "https://learnonline.shop/powerspeed-free-wordpress-theme/")
+### Q. If this theme is 100% free, how is it supported and will it be supported long-term?
+A. I made this theme for myself, my clients, and my websites so that I had only 1 theme to maintain and support for dozens of websites.  I have been updating this theme for months prior to the first public release and am using it for all new websites as well as converting existing websites that I run to use the theme.  This means that I will continue to update this theme to correct issues, introduce new features and to implement best practices for years to come, regardless of if the theme finds a community outside of my own use.  My free theme is already financially supported through the clients who hire me to build and maintain their websites.
+
+### Q. PowerSpeed is based on Bootstrap 4.5.  What happens when Bootstrap 5, 6, 7, etc are released?
+A. Future versions of Bootstrap will be taken on a case by case basis.  Any future versions of Bootstrap that are made accessible through PowerSpeed will be optional, since new major Bootstrap versions have a tendency to break compatibility with previous versions.  That means you can expect Bootstrap 4.x support for the lifetime of this theme unless I'm forced to migrate to a newer version due to security, technical, or compliance issues.
 
 == Changelog ==
+
+= 0.9.113 =
+* Fixed: [#21](https://github.com/jquindlen/powerspeed/issues/21) Links in comments were not respecting the settings. It now uses the Customizer settings in Colors > Default Link Color and Colors > Default Link Hover Color for the color of the links in the comments.
+* Fixed: [#23](https://github.com/jquindlen/powerspeed/issues/23) The problem was that clicking on any WooCommerce product image in the product page opens the image instead of using the image area.  A number of things were deployed to fix this.  Zoom or Lightbox still don't work, but this is progress.
+* Added: [#25](https://github.com/jquindlen/powerspeed/issues/25) The ability to disable author box was added for pages.
 
 = 0.9.112 =
 * Fixed: [#17](https://github.com/jquindlen/powerspeed/issues/17) Left sidebar is now mobile friendly, displays after main content not before

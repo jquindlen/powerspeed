@@ -21,7 +21,7 @@ if ( post_password_required() ) {
 }
 ?>
 <br />
-<div id="comments" class="card  powerspeed-main-content-container comments-area <?php echo esc_attr(get_theme_mod('powerspeed_border_main_content_type', '')); ?>"><div class="card-body">
+<div id="comments" class="card powerspeed-main-content-container comments-area <?php echo esc_attr(get_theme_mod('powerspeed_border_main_content_type', '')); ?>"><div class="card-body">
 
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">

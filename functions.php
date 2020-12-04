@@ -528,12 +528,16 @@ function powerspeed_footer_css() {
 	}
 
 	.powerspeed-content-card a:link,
-	.powerspeed-content-card a:visited {
+	.powerspeed-content-card a:visited,
+  .powerspeed-main-content-container a:link,
+  .powerspeed-main-content-container a:visited {
 		color:<?php echo esc_attr(get_theme_mod('powerspeed_link_color', '#007bff')); ?>;
 	}
 
 	.powerspeed-content-card a:hover,
-	.powerspeed-content-card a:active {
+	.powerspeed-content-card a:active,
+  .powerspeed-main-content-container a:link,
+  .powerspeed-main-content-container a:visited {
 		color:<?php echo esc_attr(get_theme_mod('powerspeed_link_hover_color', '#004ea3'));?>;
 	}
 
@@ -840,14 +844,6 @@ function powerspeed_config() {
 	);
 
 	/*
-	 * Support for Woocommerce
-	 */
-	add_theme_support( 'woocommerce' );
-	add_theme_support( 'wp-product-gallery-zoom' );
-	add_theme_support( 'wp-product-gallery-lightbox' );
-	add_theme_support( 'wp-product-gallery-slider' );
-
-	/*
 	 * Custom header support
 	 */
 	add_theme_support( 'custom-header', array( 'width' => 1920, 'height' => 220, 'flex-width' => false, 'flex-height' => false ) );
@@ -877,6 +873,14 @@ function powerspeed_config() {
 	 */
 	add_theme_support( 'automatic-feed-links' );
 
+  /*
+	 * Support for Woocommerce
+	 */
+  add_theme_support( 'woocommerce' );
+	add_theme_support( 'wp-product-gallery-zoom' );
+	add_theme_support( 'wp-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
+
 	/*
 	 * Support for a custom logo
 	 */
@@ -894,7 +898,12 @@ function powerspeed_config() {
 	require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 
 }
-add_action( 'after_setup_theme', 'powerspeed_config', 0 );
+add_action( 'after_setup_theme', 'powerspeed_config', 100 );
+
+function powerspeed_remove_product_image_link( $html, $post_id ) {
+    return preg_replace( "!<(a|/a).*?>!", '', $html );
+}
+add_filter( 'woocommerce_single_product_image_thumbnail_html', 'powerspeed_remove_product_image_link', 10, 2 );
 
 
 if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'PowerSpeed_Customizer_Content' ) ) {
@@ -1185,6 +1194,10 @@ function powerspeed_register_customize_options( $wp_customize ) {
 	$wp_customize->add_setting('powerspeed_section_blog_show_author', array('sanitize_callback'=>'esc_attr', 'default' => true, 'transport' => 'refresh' ) );
 	$wp_customize->add_setting('powerspeed_section_blog_show_categories', array('sanitize_callback'=>'esc_attr', 'default' => true, 'transport' => 'refresh' ) );
 	$wp_customize->add_setting('powerspeed_section_blog_show_tags', array('sanitize_callback'=>'esc_attr', 'default' => true, 'transport' => 'refresh' ) );
+  $wp_customize->add_setting('powerspeed_section_page_show_metabox', array('sanitize_callback'=>'esc_attr', 'default' => true, 'transport' => 'refresh' ) );
+  $wp_customize->add_setting('powerspeed_section_page_show_author', array('sanitize_callback'=>'esc_attr', 'default' => true, 'transport' => 'refresh' ) );
+  $wp_customize->add_setting('powerspeed_section_page_show_categories', array('sanitize_callback'=>'esc_attr', 'default' => true, 'transport' => 'refresh' ) );
+  $wp_customize->add_setting('powerspeed_section_page_show_tags', array('sanitize_callback'=>'esc_attr', 'default' => true, 'transport' => 'refresh' ) );
 	$wp_customize->add_setting('powerspeed_section_blog_pagination_link_type', array('sanitize_callback'=>'esc_attr', 'default' => 'btn btn-primary', 'transport' => 'refresh' ) );
 
 	/*
@@ -1798,8 +1811,22 @@ function powerspeed_register_customize_options( $wp_customize ) {
 	$wp_customize->add_control( 'powerspeed_section_blog_author_checkbox', array('label'=>__('Display the published date and author in the metabox?', 'powerspeed'), 'section' => 'powerspeed_section_blog', 'settings' => 'powerspeed_section_blog_show_author', 'type'=>'checkbox' )  );
 	$wp_customize->add_control( 'powerspeed_section_blog_categories_checkbox', array('label'=>__('Display the categories in the metabox?', 'powerspeed'), 'section' => 'powerspeed_section_blog', 'settings' => 'powerspeed_section_blog_show_categories', 'type'=>'checkbox' )  );
 	$wp_customize->add_control( 'powerspeed_section_blog_tags_checkbox', array('label'=>__('Display the tags in the metabox?', 'powerspeed'), 'section' => 'powerspeed_section_blog', 'settings' => 'powerspeed_section_blog_show_tags', 'type'=>'checkbox' )  );
+
+  $wp_customize->add_setting( 'powerspeed_section_page_label', array('sanitize_callback'=>'esc_attr', 'default' => 42, 'transport' => 'refresh' ) );
+	$wp_customize->add_control( new PowerSpeed_Customizer_Content( $wp_customize, 'powerspeed_section_blog_label_control', array(
+		 'section' => 'powerspeed_section_blog',
+		 'settings' => 'powerspeed_section_page_label',
+		 'label' => __( 'Page Settings', 'powerspeed' ),
+		 'content' => __( 'These settings effect pages.', 'powerspeed' ) ,
+	) ) );
+	$wp_customize->add_control( 'powerspeed_section_page_metabox_checkbox', array('label'=>__('Display the metabox that contains the published date, author, categories and tags?', 'powerspeed'), 'section' => 'powerspeed_section_blog', 'settings' => 'powerspeed_section_page_show_metabox', 'type'=>'checkbox' )  );
+	$wp_customize->add_control( 'powerspeed_section_page_author_checkbox', array('label'=>__('Display the published date and author in the metabox?', 'powerspeed'), 'section' => 'powerspeed_section_blog', 'settings' => 'powerspeed_section_page_show_author', 'type'=>'checkbox' )  );
+	$wp_customize->add_control( 'powerspeed_section_page_categories_checkbox', array('label'=>__('Display the categories in the metabox?', 'powerspeed'), 'section' => 'powerspeed_section_blog', 'settings' => 'powerspeed_section_page_show_categories', 'type'=>'checkbox' )  );
+	$wp_customize->add_control( 'powerspeed_section_page_tags_checkbox', array('label'=>__('Display the tags in the metabox?', 'powerspeed'), 'section' => 'powerspeed_section_blog', 'settings' => 'powerspeed_section_page_show_tags', 'type'=>'checkbox' )  );
+
+
 	$wp_customize->add_setting( 'powerspeed_section_blog_pagination_label', array('sanitize_callback'=>'esc_attr', 'default' => 42, 'transport' => 'refresh' ) );
-	$wp_customize->add_control( new PowerSpeed_Customizer_Content( $wp_customize, 'powerspeed_section_blog_pagination_label_control', array(
+  $wp_customize->add_control( new PowerSpeed_Customizer_Content( $wp_customize, 'powerspeed_section_blog_pagination_label_control', array(
 		 'section' => 'powerspeed_section_blog',
 		 'settings' => 'powerspeed_section_blog_pagination_label',
 		 'label' => __( 'Pagination Style', 'powerspeed' ),
